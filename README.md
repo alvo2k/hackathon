@@ -6,5 +6,10 @@
 
 Нужно выставить правильную цепочку из карточек процесса производства mAb (generic mAb production process).
 
-Создайте стандартный Flutter проект и переместите в него эти файлы. 
-Запускать в debug режиме.
+### Установка
+
+1. Скачайте и разархивируйте репозиторий
+2. Установите Flutter SDK flutter.dev/docs/get-started/install
+3. ``cd`` в папку с проектом
+4. ``flutter create .``
+5. ``flutter run --release``
