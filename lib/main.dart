@@ -120,21 +120,22 @@ class _HackathonState extends State<Hackathon> {
   }
 
   void moveToBottom(Image imageToMove) {
-    if (imageToMove.toString().contains('wrong_cards/1.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/1.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/2.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/2.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/3.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/3.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/4.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/4.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/5.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/5.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/6.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/6.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/7.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/7.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/8.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/8.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/9.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/9.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/10.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/10.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/11.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/11.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/12.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/12.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/13.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/13.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/14.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/14.jpg');}
-    if (imageToMove.toString().contains('wrong_cards/15.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/15.jpg');}
+    var wrongCardsCheck = imageToMove.image.toString();
+    if (wrongCardsCheck.contains('wrong_cards/1.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/1.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/2.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/2.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/3.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/3.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/4.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/4.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/5.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/5.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/6.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/6.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/7.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/7.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/8.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/8.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/9.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/9.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/10.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/10.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/11.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/11.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/12.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/12.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/13.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/13.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/14.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/14.jpg');}
+    if (wrongCardsCheck.contains('wrong_cards/15.jpg')) {currentQuestion().upperImageCards.remove(imageToMove); imageToMove = Image.asset('cards/15.jpg');}
 
     setState(() {
       currentQuestion().bottomImageCards.add(imageToMove);
@@ -147,28 +148,33 @@ class _HackathonState extends State<Hackathon> {
     bool falseAnyWay = false;
     bool out = false;
     for (int i = 0; i < currentQuestion().upperImageCards.length; i++) {
-      if (currentQuestion().upperImageCards[i].toString().contains(currentQuestion().correctImageList[i])) {
+      if (currentQuestion().upperImageCards[i].image.toString().contains(currentQuestion().correctImageList[i])) {
         out = true;
-      } else {  // уже пора спать, но дедлайн завтра... Сорян :(
-        var wrongImage = currentQuestion().upperImageCards[i];
-        if (wrongImage.toString().contains('cards/1.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[0];}
-        if (wrongImage.toString().contains('cards/2.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[1];}
-        if (wrongImage.toString().contains('cards/3.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[2];}
-        if (wrongImage.toString().contains('cards/4.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[3];}
-        if (wrongImage.toString().contains('cards/5.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[4];}
-        if (wrongImage.toString().contains('cards/6.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[5];}
-        if (wrongImage.toString().contains('cards/7.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[0];}
-        if (wrongImage.toString().contains('cards/8.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[1];}
-        if (wrongImage.toString().contains('cards/9.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[2];}
-        if (wrongImage.toString().contains('cards/10.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[3];}
-        if (wrongImage.toString().contains('cards/11.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[4];}
-        if (wrongImage.toString().contains('cards/12.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[5];}
-        if (wrongImage.toString().contains('cards/13.jpg')) {thirdQuestion.upperImageCards[i] = thirdQuestion.wrongCards[0];}
-        if (wrongImage.toString().contains('cards/14.jpg')) {thirdQuestion.upperImageCards[i] = thirdQuestion.wrongCards[1];}
-        if (wrongImage.toString().contains('cards/15.jpg')) {thirdQuestion.upperImageCards[i] = thirdQuestion.wrongCards[2];}
+      } else {
           falseAnyWay = true;
+        setState(() {   // уже пора спать, но дедлайн завтра... Сорян :(
+          var wrongImage = currentQuestion().upperImageCards[i].image;
+          if (wrongImage.toString().contains('cards/1.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[0];}
+          if (wrongImage.toString().contains('cards/2.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[1];}
+          if (wrongImage.toString().contains('cards/3.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[2];}
+          if (wrongImage.toString().contains('cards/4.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[3];}
+          if (wrongImage.toString().contains('cards/5.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[4];}
+          if (wrongImage.toString().contains('cards/6.jpg')) {firstQuestion.upperImageCards[i] = firstQuestion.wrongCards[5];}
+          if (wrongImage.toString().contains('cards/7.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[0];}
+          if (wrongImage.toString().contains('cards/8.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[1];}
+          if (wrongImage.toString().contains('cards/9.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[2];}
+          if (wrongImage.toString().contains('cards/10.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[3];}
+          if (wrongImage.toString().contains('cards/11.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[4];}
+          if (wrongImage.toString().contains('cards/12.jpg')) {secondQuestion.upperImageCards[i] = secondQuestion.wrongCards[5];}
+          if (wrongImage.toString().contains('cards/13.jpg')) {thirdQuestion.upperImageCards[i] = thirdQuestion.wrongCards[0];}
+          if (wrongImage.toString().contains('cards/14.jpg')) {thirdQuestion.upperImageCards[i] = thirdQuestion.wrongCards[1];}
+          if (wrongImage.toString().contains('cards/15.jpg')) {thirdQuestion.upperImageCards[i] = thirdQuestion.wrongCards[2];}
+        });
       }
     }
+    //print(out);
+    //print(!falseAnyWay);
+    //print(out && !falseAnyWay);
     return out && !falseAnyWay;
   }
 
